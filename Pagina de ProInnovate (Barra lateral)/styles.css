@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif
+}
+
+:root {
+    --body-color: #e7c7c7;
+    --sidebar-color:  #cd6a6a;
+    --primary-color: #000000;
+    --primary-color-light: #0000000d;
+    --menu-color: #ffffff;
+    --text-color: #000000;
+    --text-color2:#9b9b9b;
+
+    --tran-03: all 0.2s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.4s ease;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;
+}
+
+.sidebar.close {
+    width: 90px;
+}
+
+.sidebar li {
+    height: 40px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.sidebar .bx-bar-chart-alt-2,
+.sidebar .bx-map,
+.sidebar .bxs-bank,
+.sidebar .bx-world
+{
+    min-width: 60px;
+    border-radius: 5px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.sidebar .text,
+.sidebar .bx {
+    color: var(--text-color);
+    transition: var(--tran-03);
+}
+
+.sidebar .text {
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text{
+    opacity: 0;
+}
+
+.sidebar header {
+    position: relative;
+}
+
+.sidebar header .logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.name1 {
+    margin-top: 2px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.name2 {
+    font-size: 22px;
+    font-weight: 200;
+    margin-top: 3px;
+    display: block;
+}
+
+.sidebar header .bx-menu {
+    position: absolute;
+    top: 20%;
+    right: 0px;
+    height: 35px;
+    width: 35px;
+    background-color: var(--primary-color);
+    color: var(--sidebar-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+.sidebar.close .bx-menu {
+    width: 100%;
+    top: 20%;
+}
+
+.sidebar .menu {
+    margin-top: 40px;
+}
+
+.sidebar li a {
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--tran-03);
+}
+
+.sidebar li a:hover {
+    background-color: var(--primary-color);
+}
+
+.sidebar li a:hover .bx-bar-chart-alt-2,
+.sidebar li a:hover .bx-map,
+.sidebar li a:hover .bxs-bank,
+.sidebar li a:hover .bx-world,
+.sidebar li a:hover .text {
+    color: var(--sidebar-color);
+}
+
+.menu-bar .bottom-content .menu-switch {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.menu-switch .switch {
+    position: relative;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: var(--menu-color);
+    transition: var(--tran-05);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--sidebar-color);
+    transition: var(--tran-04);
+}
+
+.home {
+    position: absolute;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background-color: var(--menu-color);
+    transition: var(--tran-05);
+}
+
+.home .text {
+    font-size: 40px;
+    align-items: center;
+    font-weight: 500;
+    color: var(--text-color2);
+    padding: 12px 60px;
+    background-color: var(--primary-color-light)
+}
+
+.sidebar.close ~.home {
+    left: 78px;
+    height: 100vh;
+    width: calc(100% - 78px);
+}
